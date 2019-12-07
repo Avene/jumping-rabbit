@@ -10,8 +10,22 @@ html
     = stylesheet_pack_tag 'application'
 
   body
-    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
-      = link_to "Jumping Rabbit", root_path, class: 'navbar-brand'
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .navbar-collapse.collapse.w-100.dual-collapse2.order-1.order-md-0
+        ul.navbar-nav.ml-auto.text-center
+            li.nav-item.active
+              = link_to "Jumping Rabbit", root_path, class: 'navbar-brand'
+      .mx-auto.my-2.order-0.order-md-1.position-relative
+        a.mx-auto[href="#"]
+          img.rounded-circle[src="//placehold.it/80/ccff00"] 
+        button.navbar-toggler[type="button" data-toggle="collapse" data-target=".dual-collapse2"]
+          span class="navbar-toggler-icon"
+      .navbar-collapse.collapse.w-100.dual-collapse2.order-2.order-md-2
+        ul.navbar-nav.mr-auto.text-center
+          -if user_signed_in?
+            = render partial: "user_nav_menu"
+          -else
+            = link_to "Login", new_user_session_path, class: 'nav-link'
 
     main.container[role='main']
       p.notice = notice

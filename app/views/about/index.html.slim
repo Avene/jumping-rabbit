@@ -3,10 +3,12 @@
 
   .row
     .col-12
-      p This is a maintenance recording service
+      p car maintenance recording service
 
   .row
-    .col-6
+    .col-4
       = link_to 'Sign in', new_user_session_path, class: 'btn btn-primary'
-    .col-6
+    .col-4
       = link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary'
+    .col-4
+      = link_to 'Forgot?', edit_user_password_path, class: 'btn btn-primary'
