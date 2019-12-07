@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Car:
+  = @maintenance.car
+p
+  strong Title:
+  = @maintenance.title
+p
+  strong Completed on:
+  = @maintenance.completed_on
+p
+  strong Completed mirage:
+  = @maintenance.completed_mirage
+
+=> link_to 'Edit', edit_maintenance_path(@maintenance)
+'|
+=< link_to 'Back', maintenances_path

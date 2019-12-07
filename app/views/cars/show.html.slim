@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong User:
+  = @car.user
+p
+  strong Name:
+  = @car.name
+
+=> link_to 'Edit', edit_car_path(@car)
+'|
+=< link_to 'Back', cars_path
