@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :operations
-  resources :maintenances
-  resources :cars
+  resources :cars do
+    resources :maintenances, shallow: true do
+      resources :operations, shallow: true
+    end
+  end
+
   get 'home/index'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
