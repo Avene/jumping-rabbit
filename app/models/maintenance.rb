@@ -5,6 +5,6 @@ class Maintenance < ApplicationRecord
   accepts_nested_attributes_for :operations, allow_destroy: true
 
   def description
-    return "[#{completed_on}] #{title}"
+    return "[#{completed_on}:#{completed_mirage}km] #{title || '(no title)'}"
   end
 end
