@@ -4,4 +4,7 @@ class Maintenance < ApplicationRecord
   has_many :operations, inverse_of: :maintenance
   accepts_nested_attributes_for :operations, allow_destroy: true
 
+  def description
+    return "[#{completed_on}] #{title}"
+  end
 end
