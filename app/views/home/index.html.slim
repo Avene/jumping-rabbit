@@ -8,8 +8,8 @@ h4 Your cars
       = link_to "show", car_path(car), class: 'btn btn-sm btn-primary'
       = link_to "edit", edit_car_path(car), class: 'btn btn-sm btn-primary'
   .row
-    h4.col-12 Maintenance History
-  - car.maintenances.each do |mt|
+    h4.col-12 Recent Maintenance History
+  - car.maintenances.order(completed_on: :desc).limit(3).each do |mt|
     .row
       h5.col-6 = mt.description
       .col-6 
