@@ -4,17 +4,23 @@ h4 Your cars
 - current_user.cars.each do |car|
   .row
     h3.col-3 = car.name
-    .col-9 = link_to "edit", edit_car_path(car), class: 'btn btn-sm btn-primary'
+    .col-9 
+      = link_to "show", car_path(car), class: 'btn btn-sm btn-primary'
+      = link_to "edit", edit_car_path(car), class: 'btn btn-sm btn-primary'
   .row
     h4.col-12 Maintenance History
   - car.maintenances.each do |mt|
     .row
       h5.col-6 = mt.description
-      .col-6 = link_to "edit", edit_maintenance_path(mt), class: 'btn btn-sm btn-primary'
+      .col-6 
+        = link_to "show", maintenance_path(mt), class: 'btn btn-sm btn-primary'
+        = link_to "edit", edit_maintenance_path(mt), class: 'btn btn-sm btn-primary'
     - mt.operations.each do |op|
       .row
         .dl.col-11.offset-1
           dt 
             span = op.name
-            span = link_to "edit", edit_operation_path(op), class: 'btn btn-sm btn-primary'
+            span 
+              = link_to "show", operation_path(op), class: 'btn btn-sm btn-primary'
+              = link_to "edit", edit_operation_path(op), class: 'btn btn-sm btn-primary'
           dd = op.description || '(no description)'
