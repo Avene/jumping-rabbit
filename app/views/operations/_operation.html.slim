@@ -1,0 +1,10 @@
+.row[id=("operation_row_#{operation.id}")]
+  .dl.col-11.offset-1
+    dt 
+      span = operation.name
+      span 
+        = link_to "show", operation_path(operation), class: 'btn btn-sm btn-primary m-1'
+        = link_to "edit", edit_operation_path(operation), class: 'btn btn-sm btn-primary m-1'
+        = link_to "delete", operation_path(operation), method: :delete, remote: true, class: 'btn btn-sm btn-primary m-1'
+
+    dd = operation.description || '(no description)'

@@ -2,7 +2,7 @@ p#notice = notice
 
 p
   strong Car:
-  = @maintenance.car
+  = @maintenance.car.name
 p
   strong Title:
   = @maintenance.title
@@ -13,6 +13,11 @@ p
   strong Completed mirage:
   = @maintenance.completed_mirage
 
+h4 Operations 
+
+- @maintenance.operations.each do |op|
+  = render op
+
 => link_to 'Edit', edit_maintenance_path(@maintenance)
 '|
-=< link_to 'Back', maintenances_path
+=< link_to 'Back to Home', root_path

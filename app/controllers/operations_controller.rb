@@ -58,6 +58,7 @@ class OperationsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to operations_url, notice: 'Operation was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 
