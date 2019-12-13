@@ -13,8 +13,9 @@ p
   strong Completed mirage:
   = @maintenance.completed_mirage
 
-h4 Operations 
-
+h4
+  span Operations 
+  button.btn.btn-primary.btn-sm.m-1 Add
 - @maintenance.operations.each do |op|
   = render op
 
