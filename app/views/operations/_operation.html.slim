@@ -5,6 +5,7 @@
       span 
         = link_to "show", operation_path(operation), class: 'btn btn-sm btn-primary m-1'
         = link_to "edit", edit_operation_path(operation), class: 'btn btn-sm btn-primary m-1'
-        = link_to "delete", operation_path(operation), method: :delete, remote: true, class: 'btn btn-sm btn-primary m-1'
+        = link_to "delete", operation_path(operation), class: 'btn btn-sm btn-primary m-1 delete-operation-button',
+                  method: :delete, remote: true, data: { "confirm": "Are you sure to delete?", "disable-with": "Deleting..." }
 
     dd = operation.description || '(no description)'
