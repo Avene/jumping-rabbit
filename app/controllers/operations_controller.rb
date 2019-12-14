@@ -39,8 +39,10 @@ class OperationsController < ApplicationController
     respond_to do |format|
       if @operation.update(operation_params)
         format.html { redirect_to @operation, notice: 'Operation was successfully updated.' }
+        format.js
       else
         format.html { render :edit }
+        format.js
       end
     end
   end

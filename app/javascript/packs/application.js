@@ -21,3 +21,10 @@ require("jquery")
 import 'bootstrap'
 import '@fortawesome/fontawesome-free/js/all'
 import '../src/application.scss'
+
+$.fn.replaceWithPush = function(a) {
+  var $a = $(a);
+
+  this.replaceWith($a);
+  return $a;
+};

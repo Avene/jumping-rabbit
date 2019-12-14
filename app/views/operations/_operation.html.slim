@@ -1,8 +1,16 @@
-.form-row.mb-1[id=("row_#{dom_id(operation)}")]
-  .col-4 = operation.title
-  .col-6 = operation.description || '(no description)'
-  .btn-group.col-2
-    = link_to "edit", edit_operation_path(operation), class: 'btn btn-primary'
-    = link_to "delete", operation_path(operation), class: 'btn btn-primary',
-              method: :delete, remote: true, data: { "confirm": "Are you sure to delete?", "disable-with": "Deleting..." }
-  
+div.[id=("row_#{dom_id(operation)}")]
+  .form-row.mb-1
+    .col-4 = operation.title
+    .col-6 = operation.description || '(no description)'
+    .btn-group.col-2
+      = link_to "edit", edit_operation_path(operation), class: 'btn btn-primary'
+      = link_to "delete", operation_path(operation), class: 'btn btn-primary',
+                method: :delete, remote: true, data: { "confirm": "Are you sure to delete?", "disable-with": "Deleting..." }
+  = form_with model: operation do |f|
+    .form-row
+      .form-group.col-4
+        = f.text_field :title, class: 'form-control', placeholder: 'title'
+      .form-group.col-6
+        = f.text_field :description, class: 'form-control', placeholder: 'description'
+      .form-group.col-2
+        = f.submit 'Update', class: 'btn btn-primary btn-block'
