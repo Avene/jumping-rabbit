@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Maintenance:
+  = @operation.maintenance
+p
+  strong Name:
+  = @operation.name
+p
+  strong Description:
+  = @operation.description
+
+=> link_to 'Edit', edit_operation_path(@operation)
+'|
+=< link_to 'Back', maintenance_operations_path(@operation.maintenance)

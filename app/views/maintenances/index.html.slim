@@ -1,0 +1,27 @@
+h1 Listing maintenances
+
+table
+  thead
+    tr
+      th Car
+      th Title
+      th Completed on
+      th Completed mirage
+      th
+      th
+      th
+
+  tbody
+    - @maintenances.each do |maintenance|
+      tr
+        td = maintenance.car
+        td = maintenance.title
+        td = maintenance.completed_on
+        td = maintenance.completed_mirage
+        td = link_to 'Show', maintenance
+        td = link_to 'Edit', edit_maintenance_path(maintenance)
+        td = link_to 'Destroy', maintenance, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Maintenance', new_maintenance_path

@@ -1,2 +1,10 @@
+@import '~bootswatch/dist/united/variables';
 @import '~bootstrap/scss/bootstrap';
+@import '~bootswatch/dist/united/bootswatch';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.collapsing.fast {
+    -webkit-transition: height .15s ease;
+         -o-transition: height .15s ease;
+            transition: height .15s ease;
+  }

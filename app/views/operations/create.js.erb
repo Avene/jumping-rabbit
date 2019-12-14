@@ -1,0 +1,7 @@
+$("<%= escape_javascript(render @operation) %>")
+  .hide()
+  .prependTo("#operations")
+  .animate({opacity: 'show', height: 'show'}, complete = () => {
+    $('#new_form_operation_title').val("");
+    $('#new_form_operation_description').val("");
+  });
