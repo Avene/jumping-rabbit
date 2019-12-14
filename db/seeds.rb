@@ -22,15 +22,15 @@ m1 = car1.maintenances.create!(
     completed_mirage: 5000,
     operations_attributes: [
         {
-            name: 'Engine oil change',
+            title: 'Engine oil change',
             description: '10w-30 castrol',
         },
         {
-            name: 'Wiper rubber change',
+            title: 'Wiper rubber change',
             description: 'PIAA',
         },
         {
-            name: 'Transmission oil change',
+            title: 'Transmission oil change',
             description: '20w-50 castrol',
         },
     ]
@@ -42,11 +42,11 @@ m2 = car1.maintenances.create!(
     completed_mirage: 15000,
     operations_attributes: [
         {
-            name: 'Tire change',
+            title: 'Tire change',
             description: '225/45/ZR18 Bridgestone Potenza Adrenalin RE003',
         },
         {
-            name: 'Wheel change',
+            title: 'Wheel change',
             description: '18in. 8.5J +40 RAYS Gram Lights 57Xtreme Rev Limit Edition',
         },
     ]
@@ -58,23 +58,23 @@ m3 = car1.maintenances.create!(
     completed_mirage: 25000,
     operations_attributes: [
         {
-            name: 'Engine oil change',
+            title: 'Engine oil change',
             description: '10w-20 Nutec',
         },
         {
-            name: 'LLC change',
+            title: 'LLC change',
             description: 'Mazda',
         },
         {
-            name: 'Spark plug change',
+            title: 'Spark plug change',
             description: 'NGK',
         },
         {
-            name: 'Engine replace',
+            title: 'Engine replace',
             description: 'Mazda',
         },
         {
-            name: 'Clutch replace',
+            title: 'Clutch replace',
             description: 'ORC 250',
         },
     ]
@@ -85,19 +85,19 @@ m3 = car1.maintenances.create!(
     completed_mirage: 28400,
     operations_attributes: [
         {
-            name: 'Engine oil change',
+            title: 'Engine oil change',
             description: '10w-20 Nutec',
         },
         {
-            name: 'LLC change',
+            title: 'LLC change',
             description: 'Mazda',
         },
         {
-            name: 'Spark plug change',
+            title: 'Spark plug change',
             description: 'NGK',
         },
         {
-            name: 'Engine replace',
+            title: 'Engine replace',
             description: 'Mazda',
         },
     ]
@@ -108,10 +108,10 @@ m4 = car1.maintenances.create!(
     completed_mirage: 29400,
     operations_attributes: [
         {
-            name: 'Throttle cleaning',
+            title: 'Throttle cleaning',
         },
         {
-            name: 'Air filter change',
+            title: 'Air filter change',
             description: 'Autoexe',
         },
     ]
@@ -123,14 +123,14 @@ m5 = car1.maintenances.create!(
     completed_mirage: 31400,
     operations_attributes: [
         {
-            name: 'Brake disk sanding',
+            title: 'Brake disk sanding',
         },
         {
-            name: 'Brake pad change',
+            title: 'Brake pad change',
             description: 'IDI 500',
         },
         {
-            name: 'Brake air bleeding',
+            title: 'Brake air bleeding',
         },
     ]
 )
@@ -141,7 +141,7 @@ m5 = car1.maintenances.create!(
     completed_mirage: 33400,
     operations_attributes: [
         {
-            name: 'Engine oil change',
+            title: 'Engine oil change',
             description: '10w-30 Speedmaster',
         }
     ]

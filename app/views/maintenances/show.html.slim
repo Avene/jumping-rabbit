@@ -20,8 +20,8 @@ h4
 = form_with model: [@maintenance, Operation.new] do |f|
   .form-row
     .form-group.col-6
-      = f.label :name
-      = f.text_field :name, class: 'form-control'
+      = f.label :title
+      = f.text_field :title, class: 'form-control'
     .form-group.col-6
       = f.label :description
       = f.text_field :description, class: 'form-control'
