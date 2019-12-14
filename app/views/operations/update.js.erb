@@ -1,8 +1,8 @@
-$("#row-<%= dom_id(@operation) %>")
+$("#row_<%= dom_id(@operation) %>")
     .animate(
         {opacity: 'hide', height: 'hide'},
         {complete: () => { 
-            $("#row-<%= dom_id(@operation) %>")
+            $("#row_<%= dom_id(@operation) %>")
                 .replaceWithPush($("<%= escape_javascript(render @operation) %>").hide())
                 .animate({opacity: 'show', height: 'show'});
         }}

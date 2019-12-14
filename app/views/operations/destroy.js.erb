@@ -1,5 +1,5 @@
-$("#row-<%= dom_id(@operation) %>")
+$("#row_<%= dom_id(@operation) %>")
     .animate(
         {opacity: 'hide', height: 'hide'},
-        {complete: () => { $("#row-<%= dom_id(@operation) %>").remove(); }}
+        {complete: () => { $("#row_<%= dom_id(@operation) %>").remove(); }}
     );
