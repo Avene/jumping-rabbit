@@ -1,10 +1,11 @@
 class OperationsController < ApplicationController
   before_action :set_operation, only: [:show, :edit, :update, :destroy]
+  before_action :get_maintenance, only: [:index, :create, :new]
 
   # GET /operations
   # GET /operations.json
   def index
-    @operations = Operation.all
+    @operations = @maintenance.operations
   end
 
   # GET /operations/1
@@ -14,7 +15,7 @@ class OperationsController < ApplicationController
 
   # GET /operations/new
   def new
-    @operation = Operation.new
+    @operation = @maintenance.operations.build()
   end
 
   # GET /operations/1/edit
@@ -24,7 +25,7 @@ class OperationsController < ApplicationController
   # POST /operations
   # POST /operations.json
   def create
-    @operation = Operation.new(operation_params)
+    @operation = @maintenance.operations.build(operation_params)
 
     respond_to do |format|
       if @operation.save
@@ -68,8 +69,13 @@ class OperationsController < ApplicationController
       @operation = Operation.find(params[:id])
     end
 
+    def get_maintenance
+      @maintenance = Maintenance.find(params[:maintenance_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def operation_params
+      pp params
       params.require(:operation).permit(:maintenance_id, :name, :description)
     end
 end

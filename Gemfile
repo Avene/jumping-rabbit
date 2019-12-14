@@ -42,6 +42,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "rack-dev-mark"
+
+  gem "ruby-debug-ide"
+  gem "debase"
 end
 
 group :test do

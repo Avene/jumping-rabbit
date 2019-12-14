@@ -17,8 +17,17 @@ h4
   span Operations 
   button.btn.btn-primary.btn-sm.m-1 Add
 
+= form_with model: [@maintenance, Operation.new] do |f|
+  .form-row
+    .form-group.col-6
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .form-group.col-6
+      = f.label :description
+      = f.text_field :description, class: 'form-control'
+  .form-row
+    = f.submit 'Create', class: 'btn btn-sm btn-primary'
 = render @maintenance.operations
-
 => link_to 'Edit', edit_maintenance_path(@maintenance)
 '|
 =< link_to 'Back to Home', root_path
