@@ -2,6 +2,6 @@ $("<%= escape_javascript(render @operation) %>")
   .hide()
   .prependTo("#operations")
   .animate({opacity: 'show', height: 'show'}, complete = () => {
-    $('#operation_title').val("");
-    $('#operation_description').val("");
+    $('#new_form_operation_title').val("");
+    $('#new_form_operation_description').val("");
   });
