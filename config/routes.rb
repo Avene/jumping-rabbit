@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :cars do
     resources :maintenances, shallow: true do
-      resources :operations, shallow: true
+      resources :operations, shallow: true, except: :show
     end
   end
 

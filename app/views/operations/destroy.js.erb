@@ -1,1 +1,5 @@
-$("#operation_row_<%= @operation.id %>").animate({opacity: 'hide', height: 'hide'},).remove();
+$("#row_<%= dom_id(@operation) %>")
+    .animate(
+        {opacity: 'hide', height: 'hide'},
+        {complete: () => { $(this).remove() }}
+    );

@@ -1,16 +1,11 @@
 class OperationsController < ApplicationController
-  before_action :set_operation, only: [:show, :edit, :update, :destroy]
+  before_action :set_operation, only: [:edit, :update, :destroy]
   before_action :get_maintenance, only: [:index, :create, :new]
 
   # GET /operations
   # GET /operations.json
   def index
     @operations = @maintenance.operations
-  end
-
-  # GET /operations/1
-  # GET /operations/1.json
-  def show
   end
 
   # GET /operations/new
@@ -30,11 +25,10 @@ class OperationsController < ApplicationController
     respond_to do |format|
       if @operation.save
         format.html { redirect_to @operation, notice: 'Operation was successfully created.' }
-        format.json { render :show, status: :created, location: @operation }
         format.js
       else
         format.html { render :new }
-        format.json { render json: @operation.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -45,10 +39,8 @@ class OperationsController < ApplicationController
     respond_to do |format|
       if @operation.update(operation_params)
         format.html { redirect_to @operation, notice: 'Operation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @operation }
       else
         format.html { render :edit }
-        format.json { render json: @operation.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,7 +51,6 @@ class OperationsController < ApplicationController
     @operation.destroy
     respond_to do |format|
       format.html { redirect_to operations_url, notice: 'Operation was successfully destroyed.' }
-      format.json { head :no_content }
       format.js
     end
   end
