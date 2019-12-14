@@ -1,8 +1,8 @@
-.row[id=("row_#{dom_id(operation)}")]
-  .row.col-12
-    span.d-inline-block.align-middle = operation.title
-    = link_to "edit", edit_operation_path(operation), class: 'btn btn-sm btn-primary m-1'
-    = link_to "delete", operation_path(operation), class: 'btn btn-sm btn-primary m-1 delete-operation-button',
+.form-row.mb-1[id=("row_#{dom_id(operation)}")]
+  .col-4 = operation.title
+  .col-6 = operation.description || '(no description)'
+  .btn-group.col-2
+    = link_to "edit", edit_operation_path(operation), class: 'btn btn-primary'
+    = link_to "delete", operation_path(operation), class: 'btn btn-primary',
               method: :delete, remote: true, data: { "confirm": "Are you sure to delete?", "disable-with": "Deleting..." }
-  .row.col-12
-    span.d-inline-block.align-middle = operation.description || '(no description)'
+  
