@@ -16,8 +16,8 @@ p
 h4
   span Operations 
   button.btn.btn-primary.btn-sm.m-1 Add
-- @maintenance.operations.each do |op|
-  = render op
+
+= render @maintenance.operations
 
 => link_to 'Edit', edit_maintenance_path(@maintenance)
 '|

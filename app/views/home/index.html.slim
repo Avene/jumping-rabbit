@@ -15,5 +15,4 @@ h4 Your cars
       .col-6 
         = link_to "show", maintenance_path(mt), class: 'btn btn-sm btn-primary'
         = link_to "edit", edit_maintenance_path(mt), class: 'btn btn-sm btn-primary'
-    - mt.operations.each do |op|
-      = render op
+    = render mt.operations
