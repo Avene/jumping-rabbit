@@ -11,7 +11,7 @@ h4 Your cars
     h4.col-12 Recent Maintenance History
   - car.maintenances.order(completed_on: :desc).limit(3).each do |mt|
     .row
-      h5.col-6 = mt.description
+      h5.col-6 = mt.overview
       .col-6 
         = link_to "show", maintenance_path(mt), class: 'btn btn-sm btn-primary'
         = link_to "edit", edit_maintenance_path(mt), class: 'btn btn-sm btn-primary'
