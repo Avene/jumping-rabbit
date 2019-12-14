@@ -25,9 +25,9 @@ h4
     .form-group.col-6
       = f.label :description
       = f.text_field :description, class: 'form-control'
-  .form-row
-    = f.submit 'Create', class: 'btn btn-sm btn-primary'
-= render @maintenance.operations
+  = f.submit 'Create', class: 'btn btn-sm btn-primary'
+div#operations
+  = render @maintenance.operations
 => link_to 'Edit', edit_maintenance_path(@maintenance)
 '|
 =< link_to 'Back to Home', root_path
