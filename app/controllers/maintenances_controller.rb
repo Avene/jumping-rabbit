@@ -1,10 +1,11 @@
 class MaintenancesController < ApplicationController
   before_action :set_maintenance, only: [:show, :edit, :update, :destroy]
+  before_action :get_car, only: [:index, :create, :new]
 
   # GET /maintenances
   # GET /maintenances.json
   def index
-    @maintenances = Maintenance.all
+    @maintenances = @car.maintenances
   end
 
   # GET /maintenances/1
@@ -14,7 +15,7 @@ class MaintenancesController < ApplicationController
 
   # GET /maintenances/new
   def new
-    @maintenance = Maintenance.new
+    @maintenance = @car.maintenance.build
   end
 
   # GET /maintenances/1/edit
@@ -24,7 +25,7 @@ class MaintenancesController < ApplicationController
   # POST /maintenances
   # POST /maintenances.json
   def create
-    @maintenance = Maintenance.new(maintenance_params)
+    @maintenance = @car.maintenance.build(maintenance_params)
 
     respond_to do |format|
       if @maintenance.save
@@ -65,6 +66,10 @@ class MaintenancesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_maintenance
       @maintenance = Maintenance.find(params[:id])
+    end
+
+    def get_car
+      @car = Car.find(params[:car_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
