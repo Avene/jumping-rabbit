@@ -15,7 +15,7 @@ class MaintenancesController < ApplicationController
 
   # GET /maintenances/new
   def new
-    @maintenance = @car.maintenance.build
+    @maintenance = @car.maintenances.build
   end
 
   # GET /maintenances/1/edit
@@ -25,7 +25,7 @@ class MaintenancesController < ApplicationController
   # POST /maintenances
   # POST /maintenances.json
   def create
-    @maintenance = @car.maintenance.build(maintenance_params)
+    @maintenance = @car.maintenances.build(maintenance_params)
 
     respond_to do |format|
       if @maintenance.save
@@ -74,6 +74,7 @@ class MaintenancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def maintenance_params
-      params.require(:maintenance).permit(:car_id, :title, :completed_on, :completed_mirage)
+      params.require(:maintenance)
+            .permit(:car_id, :title, :completed_on, :completed_miragem, operations_attributes: [:title, :description])
     end
 end

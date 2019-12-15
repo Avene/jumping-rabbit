@@ -1,4 +1,4 @@
-= form_for @maintenance do |f|
+= form_with model: [@car, @maintenance] do |f|
   - if @maintenance.errors.any?
     #error_explanation
       h2 = "#{pluralize(@maintenance.errors.count, "error")} prohibited this maintenance from being saved:"
