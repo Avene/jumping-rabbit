@@ -4,7 +4,7 @@ h2
   | [Maintenance] #{@maintenance.title}
   span.badge.badge-secondary.ml-3 = @maintenance.car.name
 
-h4 Completed on: #{@maintenance.completed_on} @ #{@maintenance.completed_mirage}km
+h4 Completed on #{@maintenance.completed_on} @ #{@maintenance.completed_mirage}km
 
 p = @maintenance.description || "(No Description)"
 
