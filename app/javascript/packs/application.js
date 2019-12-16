@@ -39,8 +39,11 @@ $(document).on("turbolinks:load", function(){
     let time = new Date().getTime();
     let regexp = new RegExp($(this).data('id'), 'g');
     let targetId = '#' + $(this).data("target-id");
-    console.log(targetId);
-    $(targetId).append($(this).data('fields').replace(regexp, time));
+    $($(this).data('fields').replace(regexp, time))
+      .hide()  
+      .appendTo(targetId)
+      .animate({duration: 250, opacity: 'show', height: 'show'});
+
     event.preventDefault();
   });
 })

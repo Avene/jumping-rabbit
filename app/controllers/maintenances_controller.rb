@@ -16,7 +16,6 @@ class MaintenancesController < ApplicationController
   # GET /maintenances/new
   def new
     @maintenance = @car.maintenances.build
-    @maintenance.operations.build
   end
 
   # GET /maintenances/1/edit
