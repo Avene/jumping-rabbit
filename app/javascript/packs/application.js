@@ -36,7 +36,11 @@ $.fn.replaceWithPush = function(a) {
 
 $(document).on("turbolinks:load", function(){
   $('[data-add-fields]').click(function(event){
-    $(this).before($(this).data('fields').replace(new RegExp($(this).data('id'), 'g'), new Date().getTime()));
-    event.preventDefault()  
+    let time = new Date().getTime();
+    let regexp = new RegExp($(this).data('id'), 'g');
+    let targetId = '#' + $(this).data("target-id");
+    console.log(targetId);
+    $(targetId).append($(this).data('fields').replace(regexp, time));
+    event.preventDefault();
   });
 })
