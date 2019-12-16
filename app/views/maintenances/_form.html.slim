@@ -18,4 +18,16 @@
   .field
     = f.label :completed_mirage
     = f.number_field :completed_mirage
+
+  = link_to_add_fields "Add form", f, :operations
+  hr
+  = f.fields_for :operations, @maintenance.operations do |ff|
+    .field
+      = ff.label :title
+      = ff.text_field :title
+    .field
+      = ff.label :description
+      = ff.text_field :description
+    hr
+
   .actions = f.submit

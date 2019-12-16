@@ -28,3 +28,15 @@ $.fn.replaceWithPush = function(a) {
   this.replaceWith($a);
   return $a;
 };
+
+// function remove_fields(link) {
+//   $(link).prev("input[type=hidden]").val("1");
+//   $(link).closest(".fields").hide();
+// }
+
+$(document).on("turbolinks:load", function(){
+  $('[data-add-fields]').click(function(event){
+    $(this).before($(this).data('fields').replace(new RegExp($(this).data('id'), 'g'), new Date().getTime()));
+    event.preventDefault()  
+  });
+})
