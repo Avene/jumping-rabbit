@@ -14,7 +14,7 @@ class CarsController < ApplicationController
 
   # GET /cars/new
   def new
-    @car = Car.new
+    @car = current_user.cars.build
   end
 
   # GET /cars/1/edit
@@ -24,7 +24,7 @@ class CarsController < ApplicationController
   # POST /cars
   # POST /cars.json
   def create
-    @car = Car.new(car_params)
+    @car = current_user.cars.build(car_params)
 
     respond_to do |format|
       if @car.save
@@ -64,7 +64,7 @@ class CarsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_car
-      @car = Car.find(params[:id])
+      @car = current_user.cars.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
