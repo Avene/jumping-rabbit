@@ -1,5 +1,4 @@
-h1 New maintenance
-h2 good morning
+h1 Record maintenance
 
 = form_with model: [@car, @maintenance] do |f|
   - if @maintenance.errors.any?
@@ -8,29 +7,21 @@ h2 good morning
       ul
         - @maintenance.errors.full_messages.each do |message|
           li = message
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :completed_on
-    = f.date_select :completed_on
-  .field
-    = f.label :completed_mirage
-    = f.number_field :completed_mirage
-
+  fieldset
+    .form-row.form-group
+      = f.text_field :title, required: true, placeholder: 'title', class: 'form-control'
+    .form-row.form-group
+      = f.label :completed_on, class: 'col-form-label col-form-label-lg'
+      = f.date_field :completed_on, class: "form-control col-2"
+      = f.label :completed_mirage, '@ ',class: 'col-form-label col-form-label-lg'
+      = f.number_field :completed_mirage, placeholder: '15000', class: 'form-control col-2'
+      = f.label :completed_mirage, ' km',class: 'col-form-label col-form-label-lg'
   hr
+  h4 
+    | Operations  
+    = link_to_add_fields "Add operation", f, :operations, 'operation_fields', 'btn btn-sm btn-primary'
   div#operation_fields
-  = f.fields_for :operations, @maintenance.operations do |ff|
-    .field
-      = ff.label :title
-      = ff.text_field :title
-    .field
-      = ff.label :description
-      = ff.text_field :description
-    hr
-  = link_to_add_fields "Add operation", f, :operations, 'operation_fields', 'btn btn-sm btn-primary'
 
-  .actions = f.submit
+  .actions = f.submit class: 'btn btn-primary'
 
 = link_to 'Back', root_path
