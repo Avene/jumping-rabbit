@@ -9,7 +9,9 @@ Bundler.require(*Rails.groups)
 module Vagrant
   class Application < Rails::Application
     # Enable rack-dev-mark
-    config.rack_dev_mark.enable = !Rails.env.production?
+    if !Rails.env.production?
+      config.rack_dev_mark.enable = true
+    end
     #
     # Customize the env string (default Rails.env)
     # config.rack_dev_mark.env = 'foo'

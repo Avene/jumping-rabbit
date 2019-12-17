@@ -1,14 +1,32 @@
 p#notice = notice
 
-h2
-  | [Maintenance] #{@maintenance.title}
-  span.badge.badge-secondary.ml-3 = @maintenance.car.name
+div#maintenance.collapse.show.maintenance
+  h2
+    | [Maintenance] #{@maintenance.title}
+    span.badge.badge-secondary.ml-3 = @maintenance.car.name
+    .btn-group.inline
+      button.btn.btn-primary.btn-sm.form-control[type="button" data={toggle: "collapse", target: ".maintenance"}] Edit
 
-h4 Completed on #{@maintenance.completed_on} @ #{@maintenance.completed_mirage}km
+  h4 Completed on #{@maintenance.completed_on} @ #{@maintenance.completed_mirage}km
 
-p = @maintenance.description || "(No Description)"
+  p = @maintenance.description || "(No Description)"
 
-h3 Operations 
+div#maintenance_form.collapse.maintenance
+  = form_with model: @maintenance do |f|
+    fieldset
+      .form-row.form-group
+        = f.text_field :title, required: true, placeholder: 'title', class: 'form-control'
+      .form-row.form-group
+        = f.label :completed_on, class: 'col-form-label col-form-label-lg'
+        = f.date_field :completed_on, class: "form-control col-2"
+        = f.label :completed_mirage, '@ ',class: 'col-form-label col-form-label-lg'
+        = f.number_field :completed_mirage, placeholder: '15000', class: 'form-control col-2'
+        = f.label :completed_mirage, ' km',class: 'col-form-label col-form-label-lg'
+  
+  button.btn.btn-primary.form-control[type="button" data={toggle: "collapse", target: ".maintenance"}] Cancel
+
+
+h3 Operations
 
 = form_with model: [@maintenance, Operation.new], namespace: 'new_form' do |f|
   .form-row
