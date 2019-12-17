@@ -18,10 +18,6 @@ class MaintenancesController < ApplicationController
     @maintenance = @car.maintenances.build
   end
 
-  # GET /maintenances/1/edit
-  def edit
-  end
-
   # POST /maintenances
   # POST /maintenances.json
   def create

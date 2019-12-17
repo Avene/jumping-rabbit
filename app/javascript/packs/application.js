@@ -29,11 +29,6 @@ $.fn.replaceWithPush = function(a) {
   return $a;
 };
 
-// function remove_fields(link) {
-//   $(link).prev("input[type=hidden]").val("1");
-//   $(link).closest(".fields").hide();
-// }
-
 $(document).on("turbolinks:load", function(){
   $('[data-add-fields]').click(function(event){
     let time = new Date().getTime();
