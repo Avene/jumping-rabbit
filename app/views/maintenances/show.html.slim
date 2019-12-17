@@ -1,20 +1,14 @@
 p#notice = notice
 
-p
-  strong Car:
-  = @maintenance.car.name
-p
-  strong Title:
-  = @maintenance.title
-p
-  strong Completed on:
-  = @maintenance.completed_on
-p
-  strong Completed mirage:
-  = @maintenance.completed_mirage
+h2
+  | [Maintenance] #{@maintenance.title}
+  span.badge.badge-secondary.ml-3 = @maintenance.car.name
 
-h4
-  span Operations 
+h4 Completed on #{@maintenance.completed_on} @ #{@maintenance.completed_mirage}km
+
+p = @maintenance.description || "(No Description)"
+
+h3 Operations 
 
 = form_with model: [@maintenance, Operation.new], namespace: 'new_form' do |f|
   .form-row
@@ -26,6 +20,4 @@ h4
       = f.submit 'Create', class: 'btn btn-primary btn-block'
 div#operations
   = render @maintenance.operations
-=> link_to 'Edit', edit_maintenance_path(@maintenance)
-'|
-=< link_to 'Back to Home', root_path
+= link_to 'Back to Home', root_path

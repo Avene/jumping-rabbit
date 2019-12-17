@@ -18,6 +18,10 @@ class MaintenancesController < ApplicationController
     @maintenance = @car.maintenances.build
   end
 
+  # GET /maintenances/1/edit
+  def edit
+  end
+
   # POST /maintenances
   # POST /maintenances.json
   def create
@@ -53,9 +57,9 @@ class MaintenancesController < ApplicationController
   def destroy
     @maintenance.destroy
     respond_to do |format|
-      format.js
-      format.html { redirect_to root_path, notice: 'Maintenance was successfully destroyed.' }
+      format.html { redirect_to maintenances_url, notice: 'Maintenance was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 
@@ -72,6 +76,6 @@ class MaintenancesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def maintenance_params
       params.require(:maintenance)
-            .permit(:car_id, :title, :completed_on, :completed_mirage, operations_attributes: [:id, :title, :description])
+            .permit(:car_id, :title, :completed_on, :completed_miragem, operations_attributes: [:title, :description])
     end
 end

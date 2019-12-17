@@ -28,3 +28,17 @@ $.fn.replaceWithPush = function(a) {
   this.replaceWith($a);
   return $a;
 };
+
+$(document).on("turbolinks:load", function(){
+  $('[data-add-fields]').click(function(event){
+    let time = new Date().getTime();
+    let regexp = new RegExp($(this).data('id'), 'g');
+    let targetId = '#' + $(this).data("target-id");
+    $($(this).data('fields').replace(regexp, time))
+      .hide()  
+      .appendTo(targetId)
+      .animate({duration: 250, opacity: 'show', height: 'show'});
+
+    event.preventDefault();
+  });
+})
