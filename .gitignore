@@ -47,10 +47,13 @@ bower.json
 # Ignore node_modules
 node_modules/
 
+
+
 .vagrant/
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+/public/assets
 /public/packs
 /public/packs-test
 /node_modules
