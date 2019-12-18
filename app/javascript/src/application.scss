@@ -14,15 +14,20 @@
     border-top: none;
     border-left: none;
     border-right: none;
+    background-color: rgba(245,250,252,1);
 }
 
 .form-control:focus {
     color: #495057;
     background: rgb(245,250,252);
-    background: linear-gradient(180deg, rgba(245,250,252,1) 92%, rgba(59,206,255,1) 100%);
+    background: linear-gradient(180deg, rgba(245,250,252,0.4) 92%, rgba(59,206,255,1) 100%);
     border-color: #3bceff;
     outline: 0;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 140, 186, 0.25);
     // box-shadow: 0px 0px 0px 0.2rem rgba(0,140,186,0.25);
     box-shadow: none;
+}
+
+::placeholder {
+    color: #dcf5ff;
 }

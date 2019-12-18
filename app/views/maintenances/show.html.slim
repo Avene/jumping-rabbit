@@ -5,7 +5,7 @@ div#maintenance.collapse.show.maintenance
     | [Maintenance] #{@maintenance.title}
     span.badge.badge-secondary.ml-3 = @maintenance.car.name
     .btn-group.inline
-      button.btn.btn-primary.btn-sm.form-control[type="button" data={toggle: "collapse", target: ".maintenance"}] Edit
+      button.btn.btn-primary[type="button" data={toggle: "collapse", target: ".maintenance"}] Edit
 
   h4 Completed on #{@maintenance.completed_on} @ #{@maintenance.completed_mirage}km
 
@@ -23,7 +23,7 @@ div#maintenance_form.collapse.maintenance
         = f.number_field :completed_mirage, placeholder: '15000', class: 'form-control col-2'
         = f.label :completed_mirage, ' km',class: 'col-form-label col-form-label-lg'
   
-  button.btn.btn-primary.form-control[type="button" data={toggle: "collapse", target: ".maintenance"}] Cancel
+  button.btn.btn-primary[type="button" data={toggle: "collapse", target: ".maintenance"}] Cancel
 
 
 h3 Operations

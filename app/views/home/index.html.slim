@@ -9,13 +9,13 @@ h4 Your cars
   .row
     h4.col-12 
       | Maintenance History
-      = link_to "Record maintenance", new_car_maintenance_path(car), class: 'btn btn-primary ml-1'
+      = link_to "Record maintenance", new_car_maintenance_path(car), class: 'btn btn-sm btn-primary ml-1'
   - car.maintenances.order(completed_on: :desc).each do |mt|
     .row[id="row_#{dom_id(mt)}"]
-      h5.col-6 ##{mt.id}: #{mt.overview}
+      h5.col-6 ##{mt.id.to_s.rjust(3,'0')}: [#{mt.completed_on}: #{mt.completed_mirage.to_s.rjust(5,'0')}km] #{mt.title || '(no title)'}
       .col-6 
         = link_to "show", maintenance_path(mt), class: 'btn btn-sm btn-primary'
         = link_to "delete", maintenance_path(mt), method: :delete, class: 'btn btn-sm btn-primary',
                   remote: true, data: { "confirm": "Are you sure to delete?", "disable-with": "Deleting" }
 
-    = render mt.operations
+    / = render mt.operations

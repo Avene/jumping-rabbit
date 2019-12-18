@@ -3,13 +3,13 @@ div[id=("row_#{dom_id(operation)}")]
     .col-4 = operation.title
     .col-6 = operation.description || '(no description)'
     .btn-group.col-2
-      button.btn.btn-primary.form-control[type="button" data={toggle: "collapse", target: ".edit-form-#{dom_id(operation)}"}] Edit
-      = link_to "delete", operation_path(operation), class: 'btn btn-primary form-control',
+      button.btn.btn-primary[type="button" data={toggle: "collapse", target: ".edit-form-#{dom_id(operation)}"}] Edit
+      = link_to "delete", operation_path(operation), class: 'btn btn-primary',
                 method: :delete, remote: true, data: { "confirm": "Are you sure to delete?", "disable-with": "Deleting" }
   = form_with model: operation, namespace: "edit_form_#{dom_id(operation)}", class: "collapse fast edit-form-#{dom_id(operation)}" do |f|
     .form-row
       .form-group.col-4 = f.text_field :title, class: 'form-control', placeholder: 'title'
       .form-group.col-6 = f.text_field :description, class: 'form-control', placeholder: 'description'
       .form-group.col-2.btn-group
-        button.btn.btn-info.form-control[type="button" data={toggle: "collapse", target: ".edit-form-#{dom_id(operation)}"}] Cancel
-        = f.submit 'Update', class: 'btn btn-info form-control'
+        button.btn.btn-info[type="button" data={toggle: "collapse", target: ".edit-form-#{dom_id(operation)}"}] Cancel
+        = f.submit 'Update', class: 'btn btn-info'
