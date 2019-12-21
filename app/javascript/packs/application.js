@@ -29,8 +29,8 @@ $.fn.replaceWithPush = function(a) {
   return $a;
 };
 
-$(document).on("turbolinks:load", function(){
-  $('[data-add-fields]').click(function(event){
+$(document).on("turbolinks:load", function() {  
+  $('[data-add-fields]').click(function(event) {
     let time = new Date().getTime();
     let regexp = new RegExp($(this).data('id'), 'g');
     let targetId = '#' + $(this).data("target-id");
@@ -41,4 +41,26 @@ $(document).on("turbolinks:load", function(){
 
     event.preventDefault();
   });
-})
+
+  $('[data-collapse_target]').click(function(event) {
+    event.preventDefault();
+    let collapse_target = $(this).data('collapse_target');
+    let expand_target = $(this).data('expand_target');
+    let parent = $(this).data('collapse_parent');
+    let parent_height = $(parent).height();
+    $(parent).height(parent_height);
+
+    $(collapse_target).animate(
+      {duration: 70, height: 'hide', opacity: 'hide'},
+      {complete: function(){$(collapse_target).addClass("jr-hidden");}}
+    );
+    $(expand_target).removeClass("jr-hidden");
+    $(expand_target).animate(
+      {duration: 70, height: 'show',opacity: 'show'},
+    );
+    $(parent).animate(
+      {duration: 70, height: $(expand_target).get(0).scrollHeight},
+      {complete: function(){$(parent).height('auto');}}
+    );
+  })
+});

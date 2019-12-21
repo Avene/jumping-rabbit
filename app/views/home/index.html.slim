@@ -17,5 +17,3 @@ h4 Your cars
         = link_to "show", maintenance_path(mt), class: 'btn btn-sm btn-primary'
         = link_to "delete", maintenance_path(mt), method: :delete, class: 'btn btn-sm btn-primary',
                   remote: true, data: { "confirm": "Are you sure to delete?", "disable-with": "Deleting" }
-
-    / = render mt.operations
