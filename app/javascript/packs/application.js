@@ -50,16 +50,18 @@ $(document).on("turbolinks:load", function() {
     let parent_height = $(parent).height();
     $(parent).height(parent_height);
 
+    let duration = 40;
+
     $(collapse_target).animate(
-      {duration: 70, height: 'hide', opacity: 'hide'},
+      {duration: duration, height: 'hide', opacity: 'hide'},
       {complete: function(){$(collapse_target).addClass("jr-hidden");}}
     );
     $(expand_target).removeClass("jr-hidden");
     $(expand_target).animate(
-      {duration: 70, height: 'show',opacity: 'show'},
+      {duration: duration, height: 'show',opacity: 'show'},
     );
     $(parent).animate(
-      {duration: 70, height: $(expand_target).get(0).scrollHeight},
+      {duration: duration, height: $(expand_target).get(0).scrollHeight},
       {complete: function(){$(parent).height('auto')}}
     );
   });
