@@ -41,6 +41,7 @@ class MaintenancesController < ApplicationController
       if @maintenance.update(maintenance_params)
         format.html { redirect_to @maintenance, notice: 'Maintenance was successfully updated.' }
         format.json { render :show, status: :ok, location: @maintenance }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @maintenance.errors, status: :unprocessable_entity }

@@ -30,7 +30,7 @@ $.fn.replaceWithPush = function(a) {
 };
 
 $(document).on("turbolinks:load", function() {  
-  $('[data-add-fields]').click(function(event) {
+  $('main').on('click', '[data-add-fields]', function(event) {
     let time = new Date().getTime();
     let regexp = new RegExp($(this).data('id'), 'g');
     let targetId = '#' + $(this).data("target-id");
@@ -42,7 +42,7 @@ $(document).on("turbolinks:load", function() {
     event.preventDefault();
   });
 
-  $('[data-collapse_target]').click(function(event) {
+  $('main').on('click', '[data-collapse_target]', function(event) {
     event.preventDefault();
     let collapse_target = $(this).data('collapse_target');
     let expand_target = $(this).data('expand_target');
@@ -60,7 +60,7 @@ $(document).on("turbolinks:load", function() {
     );
     $(parent).animate(
       {duration: 70, height: $(expand_target).get(0).scrollHeight},
-      {complete: function(){$(parent).height('auto');}}
+      {complete: function(){$(parent).height('auto')}}
     );
-  })
+  });
 });

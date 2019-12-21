@@ -1,0 +1,10 @@
+$("#overview-wrapper")
+    .animate(
+        {opacity: 'hide', height: 'hide'},
+        {complete: function(){ 
+                $("#overview-wrapper").replaceWith(
+                    $("<%= escape_javascript (render @maintenance) %>").hide()
+                );
+                $("#overview-wrapper").animate({opacity: 'show', height: 'show'},);
+        }}
+    );

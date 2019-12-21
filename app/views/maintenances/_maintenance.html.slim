@@ -1,0 +1,27 @@
+div#overview-wrapper.row
+  div#maintenance-overview.maintenance.col-12
+    h2
+      | [Maintenance] #{maintenance.title}
+      span.badge.badge-secondary.ml-3 = maintenance.car.name
+
+    h4 Completed on #{maintenance.completed_on} @ #{maintenance.completed_mirage}km
+
+    p = maintenance.description || "(No Description)"
+    button.btn.btn-primary[type="button" data={collapse_target: "#maintenance-overview", expand_target: "#maintenance_form", collapse_parent: '#overview-wrapper'}]
+      | Edit
+
+  div#maintenance_form.maintenance.jr-hidden.col-12
+    = form_with model: maintenance do |f|
+      fieldset
+        .form-row.form-group
+          = f.text_field :title, required: true, placeholder: 'title', class: 'form-control'
+        .form-row.form-group
+          = f.label :completed_on, class: 'col-form-label col-form-label-lg'
+          = f.date_field :completed_on, class: "form-control col-2"
+          = f.label :completed_mirage, '@ ',class: 'col-form-label col-form-label-lg'
+          = f.number_field :completed_mirage, placeholder: '15000', class: 'form-control col-2'
+          = f.label :completed_mirage, ' km',class: 'col-form-label col-form-label-lg'
+      .btn-group
+        button.btn.btn-primary[type="button" data={collapse_target: "#maintenance_form", expand_target: "#maintenance-overview", collapse_parent: '#overview-wrapper'}] 
+          | Cancel
+        = f.submit class: 'btn btn-primary'      
