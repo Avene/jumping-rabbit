@@ -2,10 +2,33 @@ h3
   = "Hello! #{current_user.email}"
 h4 Your cars
 - current_user.cars.each do |car|
-  .row
-    h3.col-3 = car.name
-    .col-9 
-      = link_to "edit", edit_car_path(car), class: 'btn btn-sm btn-primary'
+  .div[id="row_#{dom_id(car)}"]
+    .row.col-12
+      h3
+        span.col-4 = car.name
+      .div[id="edit_#{dom_id(car)}"]
+        .form-row.col-12[id="overview_#{dom_id(car)}"]
+          span.btn-group.col-8
+            button.btn.btn-primary.col[type="button" data={collapse_target: "#overview_#{dom_id(car)}",
+                                                      expand_target: "#edit_form_#{dom_id(car)}",
+                                                      collapse_parent: "#edit_#{dom_id(car)}", }]
+              | Edit
+            = link_to "delete", car_path(car), class: 'btn btn-primary col',
+                      method: :delete, remote: true, data: { "confirm": "Are you sure to delete?", "disable-with": "Deleting" }
+    .jr-hidden[id="edit_form_#{dom_id(car)}"]
+      = form_with model: car, namespace: "edit_form_#{dom_id(car)}" do |f|
+        .form-row
+          .form-group.col-4 = f.text_field :name, class: 'form-control', placeholder: 'name'
+          .form-group.col-2.btn-group
+            button.btn.col.btn-info[type="button" data={collapse_target: "#edit_form_#{dom_id(car)}",
+                                                    expand_target: "#overview_#{dom_id(car)}",
+                                                    collapse_parent: "#edit_#{dom_id(car)}", }]
+              | Cancel
+            = f.submit 'Update', class: 'btn btn-info col'
+
+  /   h3.col-3 = car.name
+  /   .col-9 
+  /     = link_to "edit", edit_car_path(car), class: 'btn btn-sm btn-primary'
   .row
     h4.col-12 
       | Maintenance History
