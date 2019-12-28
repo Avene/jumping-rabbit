@@ -1,0 +1,5 @@
+$("#row_<%= dom_id(@car) %>_and_maintenance")
+    .animate(
+        {opacity: 'hide', height: 'hide'},
+        {complete: () => { $("#row_<%= dom_id(@car) %>_and_maintenance").remove(); }}
+    );
