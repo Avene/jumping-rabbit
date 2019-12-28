@@ -1,0 +1,10 @@
+$("#row_<%= dom_id(@car) %>")
+    .animate(
+        {opacity: 'hide', height: 'hide'},
+        {complete: function(){ 
+                $("#row_<%= dom_id(@car) %>").replaceWith(
+                    $("<%= escape_javascript (render @car) %>").hide()
+                );
+                $("#row_<%= dom_id(@car) %>").animate({opacity: 'show', height: 'show'},);
+        }}
+    );
