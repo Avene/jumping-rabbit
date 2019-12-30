@@ -3,6 +3,8 @@
 @import '~bootswatch/dist/yeti/bootswatch';
 // @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+$enable-responsive-font-sizes:                true !default;
+
 .collapsing.fast {
     -webkit-transition: height .15s ease;
          -o-transition: height .15s ease;
