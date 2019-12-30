@@ -16,6 +16,8 @@ h1 Record maintenance
       = f.label :completed_mirage, '@ ',class: 'col-form-label col-form-label-lg'
       = f.number_field :completed_mirage, placeholder: '15000', class: 'form-control col-2'
       = f.label :completed_mirage, ' km',class: 'col-form-label col-form-label-lg'
+    .form-row.form-group
+      = f.text_field :description, placeholder: 'description', class: 'form-control col-12'
   hr
   h4 
     | Operations  
@@ -24,4 +26,4 @@ h1 Record maintenance
 
   .actions = f.submit class: 'btn btn-primary'
 
-= link_to 'Back', root_path
+= link_to_home
