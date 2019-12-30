@@ -11,4 +11,8 @@ module ApplicationHelper
         end
         link_to(name, 'JavaScript:void(0);', class: html_class, data: {add_fields: true, target_id: target_id, id: id, fields: fields.gsub("\n", "")})
     end 
+
+    def link_to_home
+        return link_to 'Back to Home', root_path
+    end
 end

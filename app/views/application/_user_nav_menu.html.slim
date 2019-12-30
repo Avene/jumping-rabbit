@@ -1,4 +1,5 @@
 li.nav-item.dropdown
+  = link_to 'Manage your cars', cars_path, class: 'nav-link'
   a.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
     = current_user.email
   .dropdown-menu[aria-labelledby="navbarDropdown"]

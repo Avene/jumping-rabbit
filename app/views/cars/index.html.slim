@@ -1,23 +1,7 @@
-h1 Listing cars
+h1 Manage Your cars
+= link_to 'Add new car', new_car_path, class: 'btn btn-primary'
 
-table
-  thead
-    tr
-      th User
-      th Name
-      th
-      th
-      th
-
-  tbody
-    - @cars.each do |car|
-      tr
-        td = car.user
-        td = car.name
-        td = link_to 'Show', car
-        td = link_to 'Edit', edit_car_path(car)
-        td = link_to 'Destroy', car, data: { confirm: 'Are you sure?' }, method: :delete
-
+= render @cars
 br
 
-= link_to 'New Car', new_car_path
+= link_to_home
