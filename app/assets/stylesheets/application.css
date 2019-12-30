@@ -17,3 +17,7 @@
  .jr-hidden {
      display: none;
  }
+
+ .maintenance-link {
+     font-size: 1.3em;
+ }
