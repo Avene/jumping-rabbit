@@ -1,0 +1,18 @@
+fieldset.maintenance-form-fields
+  .form-row.form-group
+    = form.text_field :title, required: true, placeholder: 'title', class: 'form-control form-control-lg'
+  .form-row.form-group
+    .form-inline
+      .col-auto
+        = form.label :completed_on, class: 'col-form-label col-form-label-lg'
+      .col-auto
+        = form.date_field :completed_on, class: "form-control"
+      .col-auto
+        .input-group
+          .input-group-prepend
+            = form.label :completed_mirage, '@ ',class: 'col-form-label col-form-label-lg input-group-text'
+          = form.number_field :completed_mirage, placeholder: '15000', class: 'form-control'
+      .col-auto
+        = form.label :completed_mirage, ' km',class: 'col-form-label col-form-label-lg'
+  .form-row.form-group
+    = form.text_field :description, placeholder: 'description', class: 'form-control col-12'

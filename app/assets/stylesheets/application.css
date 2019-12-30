@@ -21,3 +21,8 @@
  .maintenance-link {
      font-size: 1.3em;
  }
+
+ .maintenance-form-fields .input-group-text{
+    background-color: inherit;
+    border: inherit;
+ }

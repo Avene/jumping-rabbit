@@ -10,16 +10,6 @@ h4 Your Cars and Maintenances
         h5.col-12.card-subtitle
           | Maintenance History
           = link_to "Add new maintenance record", new_car_maintenance_path(car), class: 'btn btn-sm btn-primary ml-1'
-      - car.maintenances.order(completed_on: :desc).each do |mt|
-        .row id="row_#{dom_id(mt)}" class="maintenance-row #{cycle 'odd', 'even'}"
-          .col-10
-            = link_to "#{mt.title || '(no title)'}", maintenance_path(mt), class: 'maintenance-link stretched-link text-decoration-none align-middle'
-            h6.text-muted ##{mt.id.to_s.rjust(3,'0')}: [#{mt.completed_on}: #{mt.completed_mirage.to_s.rjust(5,'0')}km]
-          .col-2
-            .dropdown.float-right
-              a.btn.btn-secondary.btn-sm.dropdown-toggle.maintenance-more href="#" role="button" id="maintenanceMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                | More
-              .dropdown-menu.dropdown-menu-right aria-labblledby='maintenanceMenuLink'
-                = link_to "Show", maintenance_path(mt), class: 'dropdown-item'
-                = link_to "Delete", maintenance_path(mt), method: :delete, class: 'dropdown-item', remote: true, 
-                          data: { "confirm": "Are you sure?\nAll operations in this maintenance will also be deleted.\nThis cannot be undone.", "disable-with": "Deleting" }
+      = render(partial: 'maintenance_overview', 
+               collection: car.maintenances.order(completed_on: :desc), 
+               as: :mt) || content_tag('div', "(No maintenance record)", class: 'text-muted')

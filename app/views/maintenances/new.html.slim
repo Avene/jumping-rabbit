@@ -7,17 +7,7 @@ h1 Record maintenance
       ul
         - @maintenance.errors.full_messages.each do |message|
           li = message
-  fieldset
-    .form-row.form-group
-      = f.text_field :title, required: true, placeholder: 'title', class: 'form-control'
-    .form-row.form-group
-      = f.label :completed_on, class: 'col-form-label col-form-label-lg'
-      = f.date_field :completed_on, class: "form-control col-2"
-      = f.label :completed_mirage, '@ ',class: 'col-form-label col-form-label-lg'
-      = f.number_field :completed_mirage, placeholder: '15000', class: 'form-control col-2'
-      = f.label :completed_mirage, ' km',class: 'col-form-label col-form-label-lg'
-    .form-row.form-group
-      = f.text_field :description, placeholder: 'description', class: 'form-control col-12'
+  = render partial: 'fieldset', locals: {form: f}
   hr
   h4 
     | Operations  

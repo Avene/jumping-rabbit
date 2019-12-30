@@ -12,17 +12,7 @@ div#overview-wrapper.row
 
   div#maintenance_form.maintenance.jr-hidden.col-12
     = form_with model: maintenance do |f|
-      fieldset
-        .form-row.form-group
-          = f.text_field :title, required: true, placeholder: 'title', class: 'form-control'
-        .form-row.form-group
-          = f.label :completed_on, class: 'col-form-label col-form-label-lg'
-          = f.date_field :completed_on, class: "form-control col-2"
-          = f.label :completed_mirage, '@ ',class: 'col-form-label col-form-label-lg'
-          = f.number_field :completed_mirage, placeholder: '15000', class: 'form-control col-2'
-          = f.label :completed_mirage, ' km',class: 'col-form-label col-form-label-lg'
-        .form-row.form-group
-          = f.text_field :description, placeholder: 'description', class: 'form-control col-12'
+      = render partial: 'fieldset', locals: {form: f}
       .btn-group
         button.btn.btn-primary[type="button" data={collapse_target: "#maintenance_form", expand_target: "#maintenance-overview", collapse_parent: '#overview-wrapper'}] 
           | Cancel

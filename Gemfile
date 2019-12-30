@@ -45,8 +45,10 @@ group :development do
 
   gem "ruby-debug-ide"
   gem "debase"
-end
 
+  gem "better_errors"
+  gem "binding_of_caller"
+end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
