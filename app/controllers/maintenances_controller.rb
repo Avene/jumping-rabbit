@@ -73,6 +73,6 @@ class MaintenancesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def maintenance_params
       params.require(:maintenance)
-            .permit(:car_id, :title, :completed_on, :completed_mirage, operations_attributes: [:id, :title, :description])
+            .permit(:car_id, :title, :completed_on, :completed_mirage, :description, operations_attributes: [:id, :title, :description])
     end
 end

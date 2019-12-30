@@ -3,8 +3,6 @@
 @import '~bootswatch/dist/yeti/bootswatch';
 // @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-$enable-responsive-font-sizes:                true !default;
-
 .collapsing.fast {
     -webkit-transition: height .15s ease;
          -o-transition: height .15s ease;
@@ -46,3 +44,10 @@ $enable-responsive-font-sizes:                true !default;
     background: rgb(255, 255, 255);
 }
 
+a.maintenance-link:link, a.maintenance-link:visited {
+    color: rgb(31, 35, 39)
+}
+
+a.maintenance-link:hover {
+    color: rgb(11, 97, 184)
+}
