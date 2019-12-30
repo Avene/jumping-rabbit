@@ -33,3 +33,7 @@ $enable-responsive-font-sizes:                true !default;
 ::placeholder {
     color: #dcf5ff;
 }
+
+.dropdown-toggle.maintenance-more::after {
+    display: none;
+}
