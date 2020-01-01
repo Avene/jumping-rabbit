@@ -1,22 +1,27 @@
 div[id=("row_#{dom_id(operation)}")]
   .form-row[id="overview_#{dom_id(operation)}"]
-    .col-md-4.col-sm-4 = operation.title
-    .col-md-6.col-sm-5 = operation.description || '(no description)'
-    .col-md-2.col-sm-3.form-group.btn-group
-      button.btn.btn-primary.col[type="button" data={collapse_target: "#overview_#{dom_id(operation)}",
-                                                 expand_target: "#edit_form_#{dom_id(operation)}",
-                                                 collapse_parent: "#row_#{dom_id(operation)}", }]
-        | Edit
-      = link_to "delete", operation_path(operation), class: 'btn btn-primary col',
-                method: :delete, remote: true, data: { "confirm": "Are you sure to delete?", "disable-with": "Deleting" }
+    .col
+      .form-row
+        .col-sm-5.col-12 = operation.title
+        .col-sm-7.col-12 = operation.description || '(no description)'
+    .col-md-3.col-sm-4.col-5
+      .form-row
+        .col-12.form-group.btn-group
+          button.btn.btn-primary.col[type="button" data={collapse_target: "#overview_#{dom_id(operation)}",
+                                                    expand_target: "#edit_form_#{dom_id(operation)}",
+                                                    collapse_parent: "#row_#{dom_id(operation)}", }]
+            | Edit
+          = link_to "delete", operation_path(operation), class: 'btn btn-primary col',
+                    method: :delete, remote: true, data: { "confirm": "Are you sure to delete?", "disable-with": "Deleting" }
   .jr-hidden[id="edit_form_#{dom_id(operation)}"]
     = form_with model: operation, namespace: "edit_form_#{dom_id(operation)}" do |f|
       .form-row
-        .col-md-4.col-sm-4.form-group = f.text_field :title, class: 'form-control', placeholder: 'title'
-        .col-md-6.col-sm-5.form-group = f.text_field :description, class: 'form-control', placeholder: 'description'
-        .col-md-2.col-sm-3.form-group.btn-group
-          button.btn.col.btn-info[type="button" data={collapse_target: "#edit_form_#{dom_id(operation)}",
-                                                  expand_target: "#overview_#{dom_id(operation)}",
-                                                  collapse_parent: "#row_#{dom_id(operation)}", }]
-            | Cancel
-          = f.submit 'Update', class: 'btn btn-info col'
+        = render 'operation_fields', form: f
+        .col-md-3.col-sm-4.col-5
+          .form-row
+            .col-12.form-group.btn-group
+              button.btn.col.btn-info[type="button" data={collapse_target: "#edit_form_#{dom_id(operation)}",
+                                                      expand_target: "#overview_#{dom_id(operation)}",
+                                                      collapse_parent: "#row_#{dom_id(operation)}", }]
+                | Cancel
+              = f.submit 'Update', class: 'btn btn-info col'
