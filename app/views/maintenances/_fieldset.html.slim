@@ -1,6 +1,7 @@
 fieldset.maintenance-form-fields
   .form-row.form-group
-    = form.text_field :title, required: true, placeholder: 'title', class: 'form-control form-control-lg'
+    .col
+      = form.text_field :title, required: true, placeholder: 'title', class: 'form-control form-control-lg'
   .form-row.form-group
     .form-inline
       .col-auto
@@ -15,4 +16,5 @@ fieldset.maintenance-form-fields
       .col-auto
         = form.label :completed_mirage, ' km',class: 'col-form-label col-form-label-lg'
   .form-row.form-group
-    = form.text_field :description, placeholder: 'description', class: 'form-control col-12'
+    .col
+      = form.text_field :description, placeholder: 'description', class: 'form-control'

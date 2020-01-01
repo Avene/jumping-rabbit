@@ -30,6 +30,8 @@ $.fn.replaceWithPush = function(a) {
 };
 
 $(document).on("turbolinks:load", function() {  
+  
+  // used from application_helper::link_to_add_fields
   $('main').on('click', '[data-add-fields]', function(event) {
     let time = new Date().getTime();
     let regexp = new RegExp($(this).data('id'), 'g');

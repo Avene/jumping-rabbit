@@ -16,7 +16,7 @@ div[id=("row_#{dom_id(operation)}")]
   .jr-hidden[id="edit_form_#{dom_id(operation)}"]
     = form_with model: operation, namespace: "edit_form_#{dom_id(operation)}" do |f|
       .form-row
-        = render 'operation_fields', form: f
+        = render 'operation_fieldset', form: f
         .col-md-3.col-sm-4.col-5
           .form-row
             .col-12.form-group.btn-group

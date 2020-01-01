@@ -6,7 +6,7 @@ h3.mt-3 Operations
 
 = form_with model: [@maintenance, Operation.new], namespace: 'new_form' do |f|
   .form-row
-    = render 'operation_fields', form: f
+    = render 'operation_fieldset', form: f
     .col-md-3.col-sm-4.col-5
       .form-row
         .form-group.col
