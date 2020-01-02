@@ -72,6 +72,26 @@ $(document).on("turbolinks:load", function() {
     );
   });
 
-  const availableCities = ['Baltimore', 'New York'];
-  $('#new_form_operation_title').autocomplete( { source: availableCities } );
+  const dataList = function(request, response) {
+    $.ajax({
+      url: '/operation/titles.json', // TODO query + request.term,
+      dataType: 'json',
+      type: 'GET',
+      cache: true,
+      success: function(data) {
+        response(data['titles']);
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        response(['']);
+      }
+    });
+  }
+
+  // #user_companyの部分は必要に応じてidなり指定してください
+  $('#new_form_operation_title').autocomplete({
+    source: dataList,
+    autoFocus: true, // 自動的に先頭の項目にフォーカスするか
+    delay: 300, // 入力してからサジェストが動くまでの時間(ms)
+    minLength: 2 // 2文字入力しないとサジェストが動かない
+  })
 });

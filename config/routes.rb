@@ -3,8 +3,9 @@ Rails.application.routes.draw do
     resources :maintenances, shallow: true, except: :edit  do
       resources :operations, shallow: true, except: :show
     end
-    get 'operation_titles', on: :member
   end
+
+  get 'operation/titles', to: 'operations#titles'
 
   get 'home/index'
   devise_for :users

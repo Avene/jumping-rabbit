@@ -56,6 +56,10 @@ class OperationsController < ApplicationController
       format.js
     end
   end
+  
+  def titles
+    render plain: {titles: current_user.operations.map(&:title)}.to_json
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

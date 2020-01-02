@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :update, :destroy, :operation_titles]
+  before_action :set_car, only: [:show, :edit, :update, :destroy]
 
   # GET /cars
   # GET /cars.json
@@ -61,12 +61,6 @@ class CarsController < ApplicationController
       format.json { head :no_content }
       format.js
     end
-  end
-
-  def operation_titles
-    render :status => 204 and return unless @car
-
-    render plain: {titles: @car.operations.map(&:title)}.to_json
   end
 
   private
