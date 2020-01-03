@@ -1,4 +1,4 @@
-.row id="row_#{dom_id(mt)}" class="maintenance-row #{cycle 'odd', 'even'}"
+.row id="row_#{dom_id(mt)}" class="maintenance #{cycle 'odd', 'even'}"
   .col-10
     = link_to "#{mt.title || '(no title)'}", maintenance_path(mt), class: 'maintenance-link stretched-link text-decoration-none align-middle'
     h6.text-muted ##{mt.id.to_s.rjust(3,'0')}: [#{mt.completed_on}: #{mt.completed_mirage.to_s.rjust(5,'0')}km]
