@@ -74,7 +74,7 @@ $(document).on("turbolinks:load", function() {
 
   const dataList = function(request, response) {
     $.ajax({
-      url: '/operation/titles.json?k=' + request.term,
+      url: '/operation/titles.json?q=' + request.term,
       dataType: 'json',
       type: 'GET',
       cache: true,
