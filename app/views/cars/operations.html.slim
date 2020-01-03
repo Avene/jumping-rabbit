@@ -2,7 +2,7 @@ h1 Operations history for #{@car.name}
 
 = form_with(url: operations_car_path(@car), method: "get", local: true, html: {class: 'form-inline'}) do
   .form-group
-    = text_field_tag(:q, nil, class: 'form-control', placeholder: 'filter')
+    = text_field_tag(:q, nil, class: 'form-control', placeholder: 'filter', autocomplete: 'off', data: {'operation-title-autocomplete': true})
     = submit_tag("GO", class: 'btn btn-primary') 
 
 - @operations.each do |o|
