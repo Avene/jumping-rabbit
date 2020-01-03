@@ -5,11 +5,14 @@ h4 Your Cars and Maintenances
   .card.mb-2
     .card-body id="row_#{dom_id(car)}_and_maintenance"
       .row id="row_#{dom_id(car)}"
-        h4.col-12.card-title = car.name
+        h4.col.card-title = car.name
+        .col-auto.float-right
+          .row
+            .col-12
+              = link_to 'Show operatoin history', operations_car_path(car), class: 'btn btn-sm btn-primary col-sm-auto'
+              = link_to "Add maintenance record", new_car_maintenance_path(car), class: 'btn btn-sm btn-primary col-sm-auto'
       .row.mb-3
         .col-12
-          = link_to 'Show operatoin history', operations_car_path(car), class: 'btn btn-sm btn-primary'
-          = link_to "Add new maintenance record", new_car_maintenance_path(car), class: 'btn btn-sm btn-primary ml-1'
       .row
         h5.col-12.card-subtitle
           | Recent Maintenances
