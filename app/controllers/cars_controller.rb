@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action :set_car, only: [:show, :edit, :update, :destroy, :operations]
 
   # GET /cars
   # GET /cars.json
@@ -63,6 +63,14 @@ class CarsController < ApplicationController
     end
   end
 
+  def operations
+    if operations_params[:q]
+      @operations = @car.operations.by_title_like(operations_params[:q])
+    else
+      @operations = @car.operations
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_car
@@ -72,5 +80,9 @@ class CarsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
       params.require(:car).permit(:user_id, :name)
+    end
+
+    def operations_params
+      params.permit(:q)
     end
 end

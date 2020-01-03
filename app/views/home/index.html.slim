@@ -6,10 +6,13 @@ h4 Your Cars and Maintenances
     .card-body id="row_#{dom_id(car)}_and_maintenance"
       .row id="row_#{dom_id(car)}"
         h4.col-12.card-title = car.name
+      .row.mb-3
+        .col-12
+          = link_to 'Show operatoin history', operations_car_path(car), class: 'btn btn-sm btn-primary'
+          = link_to "Add new maintenance record", new_car_maintenance_path(car), class: 'btn btn-sm btn-primary ml-1'
       .row
         h5.col-12.card-subtitle
-          | Maintenance History
-          = link_to "Add new maintenance record", new_car_maintenance_path(car), class: 'btn btn-sm btn-primary ml-1'
+          | Recent Maintenances
       = render(partial: 'maintenance_overview', 
-               collection: car.maintenances.order(completed_on: :desc), 
+               collection: car.maintenances.order(completed_on: :desc).limit(5), 
                as: :mt) || content_tag('div', "(No maintenance record)", class: 'text-muted')
