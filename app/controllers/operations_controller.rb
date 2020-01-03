@@ -56,6 +56,12 @@ class OperationsController < ApplicationController
       format.js
     end
   end
+  
+  def titles
+    # TODO this is slow because it joins oeration, maintenance, car and user
+    sanitized_k = ActiveRecord::Base.sanitize_sql_like(titles_params[:k])
+    render plain: {titles: current_user.operations.where('operations.title like :k', {k: "#{sanitized_k}%"}).order(title: "ASC").distinct.pluck(:title)}.to_json
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -69,7 +75,10 @@ class OperationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def operation_params
-      pp params
       params.require(:operation).permit(:maintenance_id, :title, :description)
+    end
+
+    def titles_params
+      params.permit(:k, :format)
     end
 end

@@ -3,12 +3,16 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
-require("turbolinks").start()
-require("@rails/activestorage").start()
-require("channels")
+require("@rails/ujs").start();
+require("turbolinks").start();
+require("@rails/activestorage").start();
+require("channels");
 
-require("jquery")
+require("jquery");
+
+// https://www.npmjs.com/package/webpack-jquery-ui
+require('webpack-jquery-ui/autocomplete');
+require('webpack-jquery-ui/css');  //ommit, if you don't want to load basic css theme
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -67,4 +71,27 @@ $(document).on("turbolinks:load", function() {
       {complete: function(){$(parent).height('auto')}}
     );
   });
+
+  const dataList = function(request, response) {
+    $.ajax({
+      url: '/operation/titles.json?k=' + request.term,
+      dataType: 'json',
+      type: 'GET',
+      cache: true,
+      success: function(data) {
+        response(data['titles']);
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        response(['']);
+      }
+    });
+  }
+
+  // #user_companyの部分は必要に応じてidなり指定してください
+  $('#new_form_operation_title').autocomplete({
+    source: dataList,
+    autoFocus: true, // 自動的に先頭の項目にフォーカスするか
+    delay: 300, // 入力してからサジェストが動くまでの時間(ms)
+    minLength: 2 // 2文字入力しないとサジェストが動かない
+  })
 });
