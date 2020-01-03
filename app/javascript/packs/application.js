@@ -12,7 +12,7 @@ require("jquery");
 
 // https://www.npmjs.com/package/webpack-jquery-ui
 require('webpack-jquery-ui/autocomplete');
-// require('webpack-jquery-ui/css');  //ommit, if you don't want to load basic css theme
+require('webpack-jquery-ui/css');  //ommit, if you don't want to load basic css theme
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -74,7 +74,7 @@ $(document).on("turbolinks:load", function() {
 
   const dataList = function(request, response) {
     $.ajax({
-      url: '/operation/titles.json', // TODO query + request.term,
+      url: '/operation/titles.json?k=' + request.term,
       dataType: 'json',
       type: 'GET',
       cache: true,
