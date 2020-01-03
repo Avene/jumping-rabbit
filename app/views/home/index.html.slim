@@ -7,6 +7,8 @@ h4 Your Cars and Maintenances
       .row id="row_#{dom_id(car)}"
         h4.col-12.card-title = car.name
       .row
+        = link_to 'operatoin history', operations_car_path(car)
+      .row
         h5.col-12.card-subtitle
           | Maintenance History
           = link_to "Add new maintenance record", new_car_maintenance_path(car), class: 'btn btn-sm btn-primary ml-1'

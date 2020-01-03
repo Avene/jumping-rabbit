@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action :set_car, only: [:show, :edit, :update, :destroy, :operations]
 
   # GET /cars
   # GET /cars.json
@@ -61,6 +61,9 @@ class CarsController < ApplicationController
       format.json { head :no_content }
       format.js
     end
+  end
+
+  def operations
   end
 
   private

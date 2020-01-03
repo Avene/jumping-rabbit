@@ -1,0 +1,7 @@
+h1 Operations history for #{@car.name}
+
+- @car.operations.each do |o|
+  .row
+    .col-2 #{o.maintenance.completed_on} @#{o.maintenance.completed_mirage}km
+    .col-3 = o.title
+    .col-5 = o.description
