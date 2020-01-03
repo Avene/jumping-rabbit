@@ -88,13 +88,11 @@ $(document).on("turbolinks:load", function() {
   }
 
   $('main').on('keydown.autocomplete', '[data-operation-title-autocomplete]', function() {
-      $(this).autocomplete(
-        {
-          source: dataList,
-          autoFocus: true,
-          delay: 300,
-          minLength: 2
-        }
-      );
+    $(this).autocomplete({
+      source: dataList,
+      autoFocus: true,
+      delay: 300,
+      minLength: 2
+    });
   });
 });
