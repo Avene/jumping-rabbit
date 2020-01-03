@@ -9,9 +9,9 @@ h1 Operations history for #{@car.name}
         = submit_tag("GO", class: 'btn btn-primary') 
 
 - @operations.each do |o|
-  .row
-    .col-3 #{o.maintenance.completed_on} @#{o.maintenance.completed_mirage}km
-    .col-3 = o.title
-    .col-6 = o.description
+  .row class="car-operation #{cycle 'odd', 'even'}"
+    .col-md-4 = o.title
+    .col-md-auto #{o.maintenance.completed_on} @#{o.maintenance.completed_mirage}km
+    .col-md-auto = o.description
 
 = link_to_home
