@@ -2,13 +2,16 @@ h1 Operations history for #{@car.name}
 
 = form_with(url: operations_car_path(@car), method: "get", local: true, html: {class: 'form-inline'}) do
   .form-group
-    = text_field_tag(:q, nil, class: 'form-control', placeholder: 'filter', autocomplete: 'off', data: {'operation-title-autocomplete': true})
-    = submit_tag("GO", class: 'btn btn-primary') 
+    .form-row
+      .col-auto
+        = text_field_tag(:q, nil, class: 'form-control', placeholder: 'filter', autocomplete: 'off', data: {'operation-title-autocomplete': true})
+      .col-auto
+        = submit_tag("GO", class: 'btn btn-primary') 
 
 - @operations.each do |o|
   .row
-    .col-2 #{o.maintenance.completed_on} @#{o.maintenance.completed_mirage}km
+    .col-3 #{o.maintenance.completed_on} @#{o.maintenance.completed_mirage}km
     .col-3 = o.title
-    .col-5 = o.description
+    .col-6 = o.description
 
 = link_to_home
