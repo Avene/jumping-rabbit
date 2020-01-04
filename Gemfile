@@ -48,6 +48,8 @@ group :development do
 
   gem "better_errors"
   gem "binding_of_caller"
+
+  gem 'foreman'
 end
 group :test do
   # Adds support for Capybara system testing and selenium driver
