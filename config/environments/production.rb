@@ -112,14 +112,22 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'jumping-rabbit.herokuapp.com'
+  host = 'aveneis.ninja'
   config.action_mailer.default_url_options = { host: host }
+  
+  mailertogo_host     = ENV.fetch("MAILERTOGO_SMTP_HOST")
+  mailertogo_port     = ENV.fetch("MAILERTOGO_SMTP_PORT", 587)
+  mailertogo_user     = ENV.fetch("MAILERTOGO_SMTP_USER")
+  mailertogo_password = ENV.fetch("MAILERTOGO_SMTP_PASSWORD")
+  mailertogo_domain   = ENV.fetch("MAILERTOGO_DOMAIN", "mydomain.com")
+  
   ActionMailer::Base.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'jumping-rabbit.heroku.com',
-    :authentication => :plain,
+    :address              => mailertogo_host,
+    :port                 => mailertogo_port,
+    :user_name            => mailertogo_user,
+    :password             => mailertogo_password,
+    :domain               => mailertogo_domain,
+    :authentication       => :plain,
+    :enable_starttls_auto => true,
   }
 end
