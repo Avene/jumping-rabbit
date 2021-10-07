@@ -116,11 +116,11 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: host }
 
   ActionMailer::Base.smtp_settings = {
-    address: ENV['CLOUDMAILIN_HOST'],
+    address: ENV['CLOUDMAILIN_OUTBOUND_HOST'],
     port: 587,
     domain: 'aveneis.ninja',
-    user_name: ENV['CLOUDMAILIN_USERNAME'],
-    password: ENV['CLOUDMAILIN_PASSWORD'],
+    user_name: ENV['CLOUDMAILIN_OUTBOUND_USERNAME'],
+    password: ENV['CLOUDMAILIN_OUTBOUND_PASSWORD'],
     authentication: 'plain',
     enable_starttls_auto: true
   }
