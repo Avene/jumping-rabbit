@@ -122,12 +122,12 @@ Rails.application.configure do
   mailertogo_domain   = ENV.fetch("MAILERTOGO_DOMAIN", "mydomain.com")
   
   ActionMailer::Base.smtp_settings = {
-    :address              => mailertogo_host,
-    :port                 => mailertogo_port,
-    :user_name            => mailertogo_user,
-    :password             => mailertogo_password,
-    :domain               => mailertogo_domain,
-    :authentication       => :plain,
-    :enable_starttls_auto => true,
+    address: ENV['CLOUDMAILIN_HOST'],
+    port: 587,
+    domain: 'aveneis.ninja',
+    user_name: ENV['CLOUDMAILIN_USERNAME'],
+    password: ENV['CLOUDMAILIN_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
   }
 end
